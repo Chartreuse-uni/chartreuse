@@ -5,7 +5,7 @@ Project Main Branch: master
 Steps to take to add to your project
 
 Tools needed:
-git - https://git-scm.com/downloads
+git - https://git-scm.com/downloads,
 git-lfs - https://github.com/git-lfs/git-lfs/releases
 
 Steps to Install on your PC
