@@ -22,5 +22,6 @@ Steps to Install on your PC
 7. Then take git pull, if the branch is not appearing use command : git fetch
 8. Once that is done, you will have to create a branch of your own to make your necessary changes for that you can use the command git checkout -b "Your branch Name"(Ignore the inverted "")
 9. This will create a new branch, from your branch we can merge PR's to the dev branch and then to the master branch.
+10. Working on the project.
 
     
