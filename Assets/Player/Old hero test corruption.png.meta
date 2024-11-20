@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Old hero test corruption_0: -5152244064711495719
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
