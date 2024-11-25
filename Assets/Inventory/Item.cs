@@ -23,12 +23,15 @@ public class Item : MonoBehaviour
     }
 
 // Ensure that the collider attached to this object has "Is Trigger" enabled.
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.tag == "Player") // Check if the object that entered the trigger is the player
+        Debug.Log($"Collision detected with: {other.gameObject.name}");
+        if (other.gameObject.tag == "Player") // Check if the object that entered the trigger is the player
         {
-            inventoryManager.AddItem(itemName, quantity, sprite); // Add the item to the inventory
+            inventoryManager.AddItem(itemName, quantity, sprite);
+            
             Destroy(gameObject); // Destroy the object after it has been picked up
+            Debug.Log("Item added to inventory. Destroying item object."); 
         }
     }
 

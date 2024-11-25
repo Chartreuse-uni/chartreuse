@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,16 +20,42 @@ public class ItemSlot : MonoBehaviour
     [SerializeField]
     private Image itemImage;
 
-    public void AddItem(string itemName, int quantity, Sprite itemSprite)
+
+public void AddItem(string itemName, int quantity, Sprite itemSprite)
     {
         this.itemName = itemName;
         this.quantity = quantity;
         this.itemSprite = itemSprite;
         isFull = true;
 
+
+        //Debugging
+        Debug.Log($"Adding item: {itemName}, Quantity: {quantity}");
+
+        if (quantityText == null)
+        {
+            Debug.LogError("quantityText is not assigned");
+            return;
+        }
+        if (itemImage == null)
+        {
+            Debug.LogError("itemImage is not assigned");
+            return;
+        }
+        if(itemSprite == null)
+        {
+            Debug.LogError("itemSprite is null");
+            return;
+        }
+
         quantityText.text = quantity.ToString();
         quantityText.enabled = true;
+
         itemImage.sprite = itemSprite;
+        itemImage.enabled = true;
+
+        Debug.Log("Item added to slot");
     }
+
 
 }
