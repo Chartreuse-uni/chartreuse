@@ -15,25 +15,24 @@ public class Item : MonoBehaviour
 
     private InventoryManager inventoryManager;
 
-    // Start is called before the first frame update
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         inventoryManager = GameObject.Find("Canvas").GetComponent<InventoryManager>();
-        
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+// Ensure that the collider attached to this object has "Is Trigger" enabled.
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if(collision.gameObject.tag=="Player")
+        Debug.Log($"Collision detected with: {other.gameObject.name}");
+        if (other.gameObject.tag == "Player") // Check if the object that entered the trigger is the player
         {
-            Debug.Log("Collision with Player detected");
             inventoryManager.AddItem(itemName, quantity, sprite);
-            Destroy(gameObject);
+            
+            Destroy(gameObject); // Destroy the object after it has been picked up
+            Debug.Log("Item added to inventory. Destroying item object."); 
         }
     }
-
-
-
-
 
 }
