@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
 
         // animator setfloat
         if(movement.x != 0  || movement.y != 0){
-       animator.SetFloat("X", movement.x);
+        animator.SetFloat("X", movement.x);
         animator.SetFloat("Y", movement.y);
         animator.SetBool("isWalking", true);
         }else{
