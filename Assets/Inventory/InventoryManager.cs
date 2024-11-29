@@ -35,33 +35,25 @@ public class InventoryManager : MonoBehaviour
 
     public void AddItem(string itemName, int quantity, Sprite itemSprite)
     {
-        if (itemSlot == null || itemSlot.Length == 0)
+       if (itemSlot == null || itemSlot.Length == 0){
+        Debug.LogError("No item slots are assigned!");
+        return;
+     }
+     Debug.Log($"Item slot that is preset is : {itemSlot}");
+
+    for (int i = 0; i < itemSlot.Length; ++i)
+    {
+        if (itemSlot[i] == null)
         {
-            Debug.LogError("ItemSlot is empty");
-            return;
-
+            Debug.LogError($"ItemSlot[{i}] is null. Ensure all slots are properly initialized.");
+            continue;
         }
-
-        for (int i = 0; i < itemSlot.Length; i++)
+        if (!itemSlot[i].isFull || itemSlot[i].isFull == false)
         {
-            if(itemSlot[i] == null)
-            {
-                Debug.LogError($"itemSlot{i} is null");
-                continue;
-            }
-
-            if (!itemSlot[i].isFull)
-            {
-                Debug.Log($"Adding item to slot {i}: {itemName} (x{quantity})");
-                itemSlot[i].AddItem(itemName, quantity, itemSprite);
-                return;
-            }
-
-            if(itemSlot[i].isFull == false)
-            {
-                itemSlot[i].AddItem(itemName, quantity, itemSprite);
-                return;
-            }
+            Debug.Log($"Adding item to slot {i}: {itemName} (x{quantity})");
+            itemSlot[i].AddItem(itemName, quantity, itemSprite);
+            break;
         }
+    }
     }
 }
