@@ -14,7 +14,7 @@ public class InRange : MonoBehaviour
 
     void Update()
     {
-        if(playerInRange && Input.GetKeyDown(KeyCode.E))
+        if(playerInRange && Input.GetKeyDown(KeyCode.F))
         {
             if(!playerInDialogue)
             {
@@ -22,7 +22,7 @@ public class InRange : MonoBehaviour
                 GetComponentInParent<DialogueSet>().Trigger("idle");
             }
 
-            if(playerInDialogue)
+            else if(playerInDialogue)
             {
                 dialogueController.NextSentence();
 

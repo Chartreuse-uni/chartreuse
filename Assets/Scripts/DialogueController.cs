@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using TMPro;
 
 public class DialogueController : MonoBehaviour
@@ -11,6 +12,8 @@ public class DialogueController : MonoBehaviour
     private Queue<string> queuedSentences;
     private GameObject dialogueBox;
     public bool dialogueEnded = true;
+    private bool triggersEvent = false;
+    private UnityEvent onLastSentence;
 
     void Start()
     {
@@ -23,6 +26,13 @@ public class DialogueController : MonoBehaviour
     {
         dialogueEnded = false;
 
+        triggersEvent = currentDialogue.triggersEvent;
+
+        if(triggersEvent)
+        {
+            onLastSentence = currentDialogue.onLastSentence;
+        }
+
         queuedSentences.Clear();
 
         nameText.text = currentDialogue.characterName;
@@ -31,6 +41,8 @@ public class DialogueController : MonoBehaviour
         {
             queuedSentences.Enqueue(sentence);
         }
+
+        NextSentence();
 
         dialogueBox.SetActive(true);
     }
@@ -42,6 +54,11 @@ public class DialogueController : MonoBehaviour
             return;
         }
 
+        if(queuedSentences.Count == 1 && triggersEvent) {
+            Debug.Log("lol Im Here");
+            onLastSentence.Invoke();
+        }
+
         string currentSentence = queuedSentences.Dequeue();
         sentenceText.text = currentSentence;
     }
@@ -51,7 +68,5 @@ public class DialogueController : MonoBehaviour
         dialogueBox.SetActive(false);
 
         dialogueEnded = true;
-
-        Debug.Log("Dialogue Ended.");
     }
 }

@@ -10,7 +10,17 @@ public class MultichoiceController : MonoBehaviour
     public UnityEvent whenCorrect;
     public UnityEvent whenIncorrect;
 
-    void answerWith(int answerNumber)
+    void Start()
+    {
+        this.transform.parent.gameObject.SetActive(false);
+    }
+
+    public void triggerMultipleChoice()
+    {
+        this.transform.parent.gameObject.SetActive(true);
+    }
+
+    public void answerWith(int answerNumber)
     {
         if(answerNumber == correctAnswer)
         {
@@ -20,5 +30,6 @@ public class MultichoiceController : MonoBehaviour
         {
             whenIncorrect.Invoke();
         }
+        this.transform.parent.gameObject.SetActive(false);
     }
 }

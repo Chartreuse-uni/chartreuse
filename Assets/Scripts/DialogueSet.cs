@@ -19,9 +19,6 @@ public class DialogueSet : MonoBehaviour
             }
         }
 
-
-        Debug.Log(targetDialogue.characterName);
-
         FindObjectOfType<DialogueController>().InitiateDialogue(targetDialogue);
     }
 }
