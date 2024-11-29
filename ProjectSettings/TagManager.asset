@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - DialogueBox
+  - Egg
   layers:
   - Default
   - TransparentFX
