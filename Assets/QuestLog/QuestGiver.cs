@@ -17,7 +17,7 @@ public class QuestGiver : MonoBehaviour
     {
         //Here we need to accept a quest // Debugging only
         tmpLog.AcceptQuest(quests[0]);
-        tmpLog.AcceptQuest(quests[1]);
+        //tmpLog.AcceptQuest(quests[1]);
     }
 
 
