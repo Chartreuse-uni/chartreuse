@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      solider-removebg-preview_0: -2680857299918227653
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
