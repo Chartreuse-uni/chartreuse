@@ -9,6 +9,7 @@ public class DialogueController : MonoBehaviour
 {
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI sentenceText;
+    public Image characterPortrait;
     private Queue<string> queuedSentences;
     private GameObject dialogueBox;
     public bool dialogueEnded = true;
@@ -34,6 +35,8 @@ public class DialogueController : MonoBehaviour
         }
 
         queuedSentences.Clear();
+
+        characterPortrait.sprite = currentDialogue.characterSprite;
 
         nameText.text = currentDialogue.characterName;
 
