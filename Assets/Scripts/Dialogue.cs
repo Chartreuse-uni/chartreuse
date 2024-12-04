@@ -10,6 +10,7 @@ public class Dialogue
     public bool triggersEvent;
     public UnityEvent onLastSentence;
     public string characterName;
+    public Sprite characterSprite;
 
     [TextArea(3, 10)]
     public string[] allSentences;
