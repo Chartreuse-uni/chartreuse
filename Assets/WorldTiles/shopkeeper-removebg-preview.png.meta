@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      shopkeeper-removebg-preview_0: -386551340052556200
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

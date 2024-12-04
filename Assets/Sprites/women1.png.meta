@@ -1,16 +1,19 @@
 fileFormatVersion: 2
-guid: ee54b347eb2a29343b125e98d4de5e68
+guid: c0ddc2a013269e64fb4e163d812441e0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1368449927086274005
-    second: women1_0
+      213: -2178707362064900914
+    second: women1 1_0
   - first:
-      213: -7533540578659299192
-    second: women1_1
+      213: 5249552041984977454
+    second: women1 1_1
   - first:
-      213: -4208386211989919606
-    second: women1_2
+      213: -4302515036679090086
+    second: women1 1_2
+  - first:
+      213: 308529212226152333
+    second: women1 1_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,9 +55,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -106,34 +109,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: women1_0
+      name: women1 1_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 0
-        width: 285
-        height: 421
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5d5f2e455f5bdf210800000000000000
-      internalID: 1368449927086274005
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: women1_1
-      rect:
-        serializedVersion: 2
-        x: 482
-        y: 963
-        width: 37
+        x: 47
+        y: 400
+        width: 47
         height: 21
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -143,18 +124,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 880950412cc737790800000000000000
-      internalID: -7533540578659299192
+      spriteID: eccd79e823da3c1e0800000000000000
+      internalID: -2178707362064900914
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: women1_2
+      name: women1 1_1
       rect:
         serializedVersion: 2
-        x: 263
-        y: 744
+        x: 57
+        y: 0
+        width: 257
+        height: 406
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2ae074d4c72ad840800000000000000
+      internalID: 5249552041984977454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: women1 1_2
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 355
+        width: 11
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5057fdae556a44c0800000000000000
+      internalID: -4302515036679090086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: women1 1_3
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 181
         width: 7
         height: 38
       alignment: 0
@@ -165,8 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a8860b4890fc895c0800000000000000
-      internalID: -4208386211989919606
+      spriteID: d8722911fad184400800000000000000
+      internalID: 308529212226152333
       vertices: []
       indices: 
       edges: []
@@ -175,8 +200,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8b245709c56ed664e82e72b4618081aa
-    internalID: 0
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -185,9 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      women1_0: 1368449927086274005
-      women1_1: -7533540578659299192
-      women1_2: -4208386211989919606
+      women1 1_0: -2178707362064900914
+      women1 1_1: 5249552041984977454
+      women1 1_2: -4302515036679090086
+      women1 1_3: 308529212226152333
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
