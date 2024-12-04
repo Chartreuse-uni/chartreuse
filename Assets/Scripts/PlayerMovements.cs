@@ -3,7 +3,10 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+
+    public StateManager stateManager;
     [SerializeField] private float speed = 5f;
+    [SerializeField] private float runSpeed = 3f;
     private Animator animator;
 
     // class scoped variaable
@@ -27,7 +30,17 @@ public class Player : MonoBehaviour
         // }
 
         // use forces to track velocity
-        rb.AddForce(movement * speed);
+        if(stateManager.playerInControl)
+        {
+        if(Input.GetKey(KeyCode.LeftShift))
+            {
+                rb.AddForce(movement * speed * runSpeed);
+            }
+            else
+            {
+                rb.AddForce(movement * speed);
+            }
+        }
     }
 
     public void OnMovement(InputValue value)
