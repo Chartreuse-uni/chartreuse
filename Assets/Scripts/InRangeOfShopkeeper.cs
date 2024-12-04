@@ -1,0 +1,56 @@
+using UnityEngine;
+
+public class InRangeOfShopkeeper : MonoBehaviour
+{
+    private bool playerInRange = false;
+    private bool playerInDialogue = false;
+    public DialogueController dialogueController;
+
+    void Start()
+    {
+        this.transform.parent.Find("PromptToPlayer").gameObject.SetActive(false);
+    }
+
+    void Update()
+    {
+        Debug.Log($"Player in Rangge: {playerInRange}, Count 1");
+        if(playerInRange && Input.GetKeyDown(KeyCode.F))
+        {
+            if(!playerInDialogue)
+            {
+                playerInDialogue = true;
+                GetComponentInParent<DialogueSet>().Trigger("idle");
+            }
+
+            else if(playerInDialogue)
+            {
+                dialogueController.NextSentence();
+
+                if(dialogueController.dialogueEnded)
+                {
+                    playerInDialogue = false;
+                }
+            }
+
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag == "Player")
+        {
+            this.transform.parent.Find("PromptToPlayer").gameObject.SetActive(true);
+            playerInRange = true;
+        }
+
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if(other.tag == "Player")
+        {
+            this.transform.parent.Find("PromptToPlayer").gameObject.SetActive(false);
+            playerInRange = false;
+        }
+    }
+}
