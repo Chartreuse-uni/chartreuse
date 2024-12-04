@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Oracle Area_0: -4835632793985088404
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
