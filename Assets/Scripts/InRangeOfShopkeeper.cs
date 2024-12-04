@@ -13,7 +13,6 @@ public class InRangeOfShopkeeper : MonoBehaviour
 
     void Update()
     {
-        Debug.Log($"Player in Rangge: {playerInRange}, Count 1");
         if(playerInRange && Input.GetKeyDown(KeyCode.F))
         {
             if(!playerInDialogue)
