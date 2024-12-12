@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class MultichoiceController : MonoBehaviour
 {
     public int correctAnswer;
+    public StateManager stateManager;
     public UnityEvent whenCorrect;
     public UnityEvent whenIncorrect;
 
@@ -18,6 +19,9 @@ public class MultichoiceController : MonoBehaviour
     public void triggerMultipleChoice()
     {
         this.transform.parent.gameObject.SetActive(true);
+        stateManager.StartMCQ();
+        stateManager.playerInDialogue = false;
+        
     }
 
     public void answerWith(int answerNumber)
@@ -31,5 +35,7 @@ public class MultichoiceController : MonoBehaviour
             whenIncorrect.Invoke();
         }
         this.transform.parent.gameObject.SetActive(false);
+        stateManager.EndMCQ();
+        stateManager.StartDialogue();
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 public class InRange : MonoBehaviour
 {
     private bool playerInRange = false;
-    private bool playerInDialogue = false;
+    public StateManager stateManager;
     public DialogueController dialogueController;
 
     void Start()
@@ -13,24 +13,15 @@ public class InRange : MonoBehaviour
 
     void Update()
     {
-        if(playerInRange && Input.GetKeyDown(KeyCode.F))
+        if(playerInRange && Input.GetKeyDown(KeyCode.F) && !stateManager.playerInDialogue && !stateManager.playerInMCQ)
         {
-            if(!playerInDialogue)
-            {
-                playerInDialogue = true;
-                GetComponentInParent<DialogueSet>().Trigger("idle");
-            }
+            GetComponentInParent<DialogueSet>().Trigger(stateManager.phase);
+            stateManager.TakePlayerControl();
+        }
 
-            else if(playerInDialogue)
-            {
-                dialogueController.NextSentence();
-
-                if(dialogueController.dialogueEnded)
-                {
-                    playerInDialogue = false;
-                }
-            }
-
+        if(playerInRange && Input.GetKeyUp(KeyCode.F) && !stateManager.playerInDialogue && !stateManager.playerInMCQ)
+        {
+            stateManager.StartDialogue();
         }
     }
 

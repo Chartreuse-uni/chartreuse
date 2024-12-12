@@ -11,18 +11,14 @@ public class DialogueSet : MonoBehaviour
     {
         Dialogue targetDialogue = allDialogues[0];
 
-        Debug.Log(targetDialogue.characterName);
-
-
         foreach(Dialogue dialogue in allDialogues)
         {
             if(dialogue.dialogueID == dialogueID)
             {
+                Debug.Log("found");
                 targetDialogue = dialogue;
             }
         }
-
-        Debug.Log(targetDialogue.characterName);
 
         dialogueController.InitiateDialogue(targetDialogue);
     }

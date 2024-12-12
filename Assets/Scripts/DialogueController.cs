@@ -15,6 +15,7 @@ public class DialogueController : MonoBehaviour
     public bool dialogueEnded = true;
     private bool triggersEvent = false;
     private UnityEvent onLastSentence;
+    private UnityEvent onEnd;
 
     void Start()
     {
@@ -32,6 +33,7 @@ public class DialogueController : MonoBehaviour
         if(triggersEvent)
         {
             onLastSentence = currentDialogue.onLastSentence;
+            onEnd = currentDialogue.onEnd;
         }
 
         queuedSentences.Clear();
@@ -54,6 +56,11 @@ public class DialogueController : MonoBehaviour
     {
         if(queuedSentences.Count == 0) {
             EndDialogue();
+
+            if(triggersEvent)
+            {
+                onEnd.Invoke();
+            }
             return;
         }
 

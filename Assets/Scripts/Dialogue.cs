@@ -9,6 +9,7 @@ public class Dialogue
     public string dialogueID;
     public bool triggersEvent;
     public UnityEvent onLastSentence;
+    public UnityEvent onEnd;
     public string characterName;
     public Sprite characterSprite;
 
