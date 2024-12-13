@@ -14,6 +14,7 @@ public class DialogueController : MonoBehaviour
     private GameObject dialogueBox;
     public bool dialogueEnded = true;
     private bool triggersEvent = false;
+    private UnityEvent onStart;
     private UnityEvent onLastSentence;
     private UnityEvent onEnd;
 
@@ -32,6 +33,7 @@ public class DialogueController : MonoBehaviour
 
         if(triggersEvent)
         {
+            onStart = currentDialogue.onStart;
             onLastSentence = currentDialogue.onLastSentence;
             onEnd = currentDialogue.onEnd;
         }
@@ -46,6 +48,8 @@ public class DialogueController : MonoBehaviour
         {
             queuedSentences.Enqueue(sentence);
         }
+
+        onStart.Invoke();
 
         NextSentence();
 

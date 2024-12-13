@@ -8,6 +8,7 @@ public class Dialogue
 {
     public string dialogueID;
     public bool triggersEvent;
+    public UnityEvent onStart;
     public UnityEvent onLastSentence;
     public UnityEvent onEnd;
     public string characterName;

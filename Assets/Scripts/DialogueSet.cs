@@ -9,6 +9,7 @@ public class DialogueSet : MonoBehaviour
     
     public void Trigger(string dialogueID)
     {
+        bool dialogueFound = false;
         Dialogue targetDialogue = allDialogues[0];
 
         foreach(Dialogue dialogue in allDialogues)
@@ -17,7 +18,20 @@ public class DialogueSet : MonoBehaviour
             {
                 Debug.Log("found");
                 targetDialogue = dialogue;
+                dialogueFound = true;
             }
+        }
+
+        if(!dialogueFound)
+        {
+            foreach(Dialogue dialogue in allDialogues)
+        {
+            if(dialogue.dialogueID == "Default")
+            {
+                Debug.Log("default dialogue");
+                targetDialogue = dialogue;
+            }
+        }
         }
 
         dialogueController.InitiateDialogue(targetDialogue);

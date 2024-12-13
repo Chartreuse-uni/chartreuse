@@ -16,6 +16,7 @@ public class GiveHint : MonoBehaviour
             epochDialogue.Trigger(stateManager.epochState);
             triggerEpoch.Invoke();
             stateManager.TakePlayerControl();
+            stateManager.EndMCQ();//
             stateManager.StartDialogue();
         }
     }

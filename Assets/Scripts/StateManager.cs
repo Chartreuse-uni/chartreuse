@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 using UnityEngine.Playables;
 
 public class StateManager : MonoBehaviour
@@ -11,8 +12,19 @@ public class StateManager : MonoBehaviour
     public Rigidbody2D playerBody;
     public GiveHint oracleHint;
     public PlayableDirector crowdCutscene;
-    public PlayableDirector soldierCutscene;//
+    public PlayableDirector soldierCutscene;
+    public PlayableDirector dukeCutscene;
+    public PlayableDirector gunmanCutscene;
+    public PlayableDirector controls;
     public GameObject blackScreen;
+    public GameObject blockClick;
+    public GameObject map;
+
+    public GameObject ring;
+    public GameObject timePiece;
+    public Image inventorySlot;
+    public Sprite emptySprite;
+    public Sprite ringSprite;
 
     public bool playerInDialogue = false;
     public bool playerInControl = false;
@@ -55,6 +67,18 @@ public class StateManager : MonoBehaviour
         playerInMCQ = false;
     }
 
+    public void BlockClick()
+    {
+        Debug.Log("Clicking Blocked");
+        blockClick.SetActive(true);
+    }
+
+    public void AllowClick()
+    {
+        Debug.Log("Clicking Allowed");
+        blockClick.SetActive(false);
+    }
+
     public void GivePlayerControl()
     {
         Debug.Log("Control Given to Player");
@@ -78,6 +102,11 @@ public class StateManager : MonoBehaviour
         epochState = state;
     }
 
+    public void ResetEpochState()
+    {
+        epochState = phase;
+    }
+
     public void SetHintTimer()
     {
         hintTimer = 20.0f; /*test value hello*/
@@ -89,10 +118,53 @@ public class StateManager : MonoBehaviour
         crowdCutscene.Play();
     }
 
+    public void ShowControls()
+    {
+        controls.Play();
+    }
+
     public void ClearSoldier()
     {
         blackScreen.SetActive(true);
         soldierCutscene.Play();
+    }
+
+    public void showDuke()
+    {
+        blackScreen.SetActive(true);
+        dukeCutscene.Play();
+    }
+
+    public void ClearGunman()
+    {
+        blackScreen.SetActive(true);
+        gunmanCutscene.Play();
+    }
+
+    public void ShowMap()
+    {
+        map.SetActive(true);
+    }
+
+    public void HideMap()
+    {
+        map.SetActive(false);
+    }
+
+    public void GiveRing()
+    {
+        ring.SetActive(false);
+        inventorySlot.sprite = ringSprite;
+    }
+
+    public void TakeRing()
+    {
+        inventorySlot.sprite = emptySprite;
+    }
+
+    public void DropTimeCore()
+    {
+        timePiece.SetActive(true);
     }
 
     void Start()
@@ -105,27 +177,27 @@ public class StateManager : MonoBehaviour
 
     void Update()
     {
-            if(playerInDialogue && Input.GetKeyDown(KeyCode.F))
-            {
-                dialogueController.NextSentence();
-            }
+        if(playerInDialogue && Input.GetKeyDown(KeyCode.F) && !playerInMCQ)
+        {
+            dialogueController.NextSentence();
+        }
 
-            if(endOnNextKeyUp && Input.GetKeyUp(KeyCode.F))
-            {
-                playerInDialogue = false;
-                playerAnimator.enabled = true;
-                endOnNextKeyUp = false;
-            }
+        if(endOnNextKeyUp && Input.GetKeyUp(KeyCode.F))
+        {
+            playerInDialogue = false;
+            playerAnimator.enabled = true;
+            endOnNextKeyUp = false;
+        }
 
-            if(playerInControl && hintTimer > 0.0f)
-            {
-                hintTimer -= Time.deltaTime;
-            }
+        if(playerInControl && hintTimer > 0.0f)
+        {
+            hintTimer -= Time.deltaTime;
+        }
 
-            if(hintTimer <= 0.0f && !playerInDialogue && !playerInMCQ)
-            {
-                epochState = phase + "-hint";
-                oracleHint.whenClicked();
-            }
+        if(hintTimer <= 0.0f && !playerInDialogue && !playerInMCQ)
+        {
+            epochState = phase + "-hint";
+            oracleHint.whenClicked();
+        }
     }
 }
