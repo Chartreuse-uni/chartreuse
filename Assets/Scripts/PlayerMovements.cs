@@ -22,20 +22,13 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Rigid body velocity physics based
-        // rb.MovePosition(rb.position + movement * speed *Time.fixedDeltaTime);
-        // if(movement.x != 0  || movement.y != 0){
-        // rb.linearVelocity = movement * speed;
-
-        // }
-
-        // use forces to track velocity
         if(stateManager.playerInControl)
         {
-        if(Input.GetKey(KeyCode.LeftShift))
+            if(Input.GetKey(KeyCode.LeftShift))
             {
                 rb.AddForce(movement * speed * runSpeed);
             }
+            
             else
             {
                 rb.AddForce(movement * speed);

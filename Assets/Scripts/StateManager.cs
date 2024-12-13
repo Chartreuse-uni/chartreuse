@@ -29,7 +29,7 @@ public class StateManager : MonoBehaviour
     public bool playerInDialogue = false;
     public bool playerInControl = false;
     public bool playerInMCQ = false;
-    public bool puzzleOneSolved = false;
+
     public string phase;
     public string epochState;
     public float hintTimer;

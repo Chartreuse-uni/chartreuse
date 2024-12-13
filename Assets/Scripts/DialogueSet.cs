@@ -36,4 +36,5 @@ public class DialogueSet : MonoBehaviour
 
         dialogueController.InitiateDialogue(targetDialogue);
     }
+    
 }
