@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    background: #fafafa;
+  }
+
+  .metrics-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* Wrap boxes to avoid overflow */
+    margin-top: 10px;
+}
+
+.metric-box {
+    flex: 1 1 120px; /* Set a minimum width for each box */
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #f9fbfc;
+}
+
+.metric-title {
+    font-size: 14px;
+    color: #678197;
+    border-bottom: 1px solid #e5e9ec;
+    padding-bottom: 4px;
+    margin-bottom: 6px;
+}
+
+.metric-value {
+    font-size: 18px;
+    color: #4a6378;
+    font-weight: bold;
+}
+
+.state-on {
+    background-color: #4CAF50;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+  
